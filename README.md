@@ -42,8 +42,7 @@ To understand how to use any c++ project structure, the first question that matt
 
 Use the `git submodule` command to clone whatever repository you like into `lib/[libname]`. If your archaic repository of choice isn't on git, then recursively copy the entire project directory with CMakeLists.txt at the toplevel. This is important. CMake __has__ to be used for this to work. There are alternatives if CMake isn't the build system in use, but they are not covered here.
 
-> <span style="color: red">NOTE:</span> the command given here uses the version of the library in the master branch. If
-you need a specific commit or release, change the submodule command accordingly.
+> <span style="color: red">NOTE:</span> the command given here uses the version of the library in the master branch. If you need a specific commit or release, change the submodule command accordingly.
 
 * Step 1: add git submodule
 
@@ -91,6 +90,10 @@ you need a specific commit or release, change the submodule command accordingly.
 
     ```
 
-## Projects I've done with this template :banana::gorilla:
+## Tests
 
-Just made this template. I *will* update this in the future. :v:
+There are 2 main well-qualified testing frameworks in c++. Catch2 and GoogleTest. I want to work at Google, so I chose GoogleTest. Just kidding. It started working first, so now I'm sticking with it to the grave.
+
+## Projects I've made with this template :banana::gorilla:
+
+I just made this template. I *will* update this in the future. :v:
