@@ -96,7 +96,7 @@ Use the `git submodule` command to clone whatever repository you like into `lib/
 
     ```
 
-## Tests
+## Tests :robot:
 
 There are 2 main well-qualified testing frameworks I was considering: Catch2 and GoogleTest. I want to work at Google, so I chose GoogleTest. Just kidding. GoogleTest started working first, so now I'm sticking with it to the grave.
 
