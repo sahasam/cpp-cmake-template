@@ -2,8 +2,6 @@ cmake_minimum_required(VERSION 3.19.1)
 
 enable_testing()
 
-
-
 set(TEST_SOURCES
     test.cpp
     adder/adder.cpp

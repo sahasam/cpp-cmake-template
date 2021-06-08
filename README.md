@@ -31,9 +31,15 @@ To understand how to use any c++ project structure, the first question that matt
             adder.h
             adder.cpp
         main.cpp
+        CMakeLists.txt
     lib/                # Any dependencies get git submodule'd in here
         glfw/
             ...
+    tests/
+        adder/
+            adder.cpp
+        test.cpp
+        CMakeLists.txt
     .gitignore          # comes preprepared with ignores for cmake and c++
     CMakeLists.txt      # preloaded with secret seasoning
 ```
@@ -92,7 +98,13 @@ Use the `git submodule` command to clone whatever repository you like into `lib/
 
 ## Tests
 
-There are 2 main well-qualified testing frameworks in c++. Catch2 and GoogleTest. I want to work at Google, so I chose GoogleTest. Just kidding. It started working first, so now I'm sticking with it to the grave.
+There are 2 main well-qualified testing frameworks I was considering: Catch2 and GoogleTest. I want to work at Google, so I chose GoogleTest. Just kidding. GoogleTest started working first, so now I'm sticking with it to the grave.
+
+Getting basic tests was not that difficult. It was as hard as copying code from examples. Integrating it, however, with the src/ module was quite difficult to figure out. I ended up creating a static library out of the `src/` module, and linking it to the test code. Because the source code was linked as a library, `#include` statements should contain angle brackets like so:
+
+    #include <adder/adder.h>
+
+If the test executable need to be linked with any external libraries in the project, they should be linked in the toplevel CMakeLists.txt. It works, so I'm not complaining.
 
 ## Projects I've made with this template :banana::gorilla:
 

@@ -2,12 +2,6 @@ cmake_minimum_required(VERSION 3.19.1)
 
 project(template)
 
-# Saves all source files in src/ to a variable
-#set(SOURCES src/adder/adder.cpp)
-
-#add_executable(${PROJECT_NAME} ${SOURCES} src/main.cpp)
-# add_executable(${PROJECT_NAME}_test ${SOURCES} test/test.cpp)
-
 add_subdirectory(lib/glfw)
 add_subdirectory(lib/googletest)
 
@@ -22,6 +16,10 @@ option(ENABLE_TESTING "Build Tests" ON)
 if(ENABLE_TESTING)
     enable_testing()
     add_subdirectory(tests)
+
+    target_include_directories(tests PUBLIC lib/glfw/include)
+    target_link_directories(tests PRIVATE lib/glfw/src)
+    target_link_libraries(tests glfw)
 endif()
 
 
@@ -42,7 +40,7 @@ if(GIT_FOUND AND EXISTS "${PROJECT_SOURCE_DIR}/.git")
     endif()
 endif()
 
-#           CHECK ALL THE SUBMODULES
+# CHECK ALL THE SUBMODULES
 if(NOT EXISTS "${PROJECT_SOURCE_DIR}/lib/glfw/CMakeLists.txt")
     message(FATAL_ERROR "The glfw submodules was not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
 endif()
